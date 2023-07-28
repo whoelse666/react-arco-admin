@@ -1,21 +1,27 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from "@arco-design/web-react";
-// import "@arco-design/web-react/dist/css/arco.css";
+import './App.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
+import { useMemo } from 'react';
+import { getFlattenRoutes, routes } from './routes';
 function App() {
-  // const [count, setCount] = useState(0)
-
+  const flattenRoutes = useMemo(() => getFlattenRoutes(routes) || [], [routes]);
   return (
-    <>
-      <div>
-        <Button type="primary">hello arco</Button>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          {flattenRoutes.map((route) => {
+            return (
+              <Route
+                key={route.key}
+                path={`/${route.key}`}
+                element={route.component}
+              />
+            );
+          })}
+        </Routes>
       </div>
-    
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
