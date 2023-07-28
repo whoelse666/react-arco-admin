@@ -8,7 +8,9 @@
 # testing
 /coverage
 
+# next.js
  
+/out/
 
 # production
 /build
@@ -23,11 +25,20 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+
+# eslint
+.eslintcache
+
+# stylelint
+.stylelintcache
