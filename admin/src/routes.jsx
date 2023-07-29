@@ -12,17 +12,16 @@ export const routes = [
 ];
 
 export function getFlattenRoutes(routes) {
-  const res = [] as any;
+  const res = [];
   function travel(_routes) {
     _routes.forEach((route) => {
       if (route.key && !route.children) {
-        // const Component = lazy(() => import(`./pages/${route.key}.tsx`));
-       route.component = lazy(() => import(`./pages/${route.key}.tsx`));
-        // route.component = (
-        //   <Suspense>
-        //     <Component /> 
-        //   </Suspense>
-        // );
+        const Component = lazy(() => import(`./pages/${route.key}.tsx`));
+        route.component = (
+          <Suspense>
+            <Component />
+          </Suspense>
+        );
 
         res.push(route);
       } else if (Array.isArray(route.children) && route.children.length) {

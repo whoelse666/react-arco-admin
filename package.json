@@ -39,7 +39,6 @@
   },
   "devDependencies": {
     "@arco-design/webpack-plugin": "^1.6.0",
-    "@arco-plugins/vite-plugin-svgr": "^0.7.2",
     "@svgr/webpack": "^5.5.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
