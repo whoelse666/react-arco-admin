@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { IconDashboard, IconEmail } from '@arco-design/web-react/icon';
-
 import ReactIcon from './assets/react.svg';
 import { Button, Icon } from '@arco-design/web-react';
 const IconFont = Icon.addFromIconFontCn({
