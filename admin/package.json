@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@arco-design/web-react": "^2.50.2",
+    "ahooks": "^3.7.8",
+    "mockjs": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.14.2",
