@@ -14,6 +14,7 @@ import useStorage from '@/utils/useStorage';
 import useLocale from '@/utils/useLocale';
 import locale from './locale';
 import styles from './style/index.module.less';
+import service from '@/utils/request';
 
 export default function LoginForm() {
   const formRef = useRef<FormInstance>();
@@ -39,22 +40,12 @@ export default function LoginForm() {
     window.location.href = '/';
   }
 
-  function login(params) {
-    setErrorMessage('');
+  async function login(params) {
+    const res = await service.post('/api/auth/login', params);
+    localStorage.setItem('token', res.data.token);
+    // setErrorMessage('');
     setLoading(true);
-    axios
-      .post('/api/user/login', params)
-      .then((res) => {
-        const { status, msg } = res.data;
-        if (status === 'ok') {
-          afterLoginSuccess(params);
-        } else {
-          setErrorMessage(msg || t['login.form.login.errMsg']);
-        }
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    afterLoginSuccess(params);
   }
 
   function onSubmitClick() {
@@ -84,17 +75,10 @@ export default function LoginForm() {
         className={styles['login-form']}
         layout="vertical"
         ref={formRef}
-        initialValues={{ userName: 'admin', password: 'admin' }}
+        initialValues={{ phoneNumber: '13888888888', password: '888888' }}
       >
-        <Form.Item
-          field="userName"
-          rules={[{ required: true, message: t['login.form.userName.errMsg'] }]}
-        >
-          <Input
-            prefix={<IconUser />}
-            placeholder={t['login.form.userName.placeholder']}
-            onPressEnter={onSubmitClick}
-          />
+        <Form.Item field="phoneNumber">
+          <Input prefix={<IconUser />} onPressEnter={onSubmitClick} />
         </Form.Item>
         <Form.Item
           field="password"

@@ -3,16 +3,22 @@ import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Spin } from '@arco-design/web-react';
 import cs from 'classnames';
 import {
-  IconDashboard,
-  IconList,
-  IconSettings,
-  IconFile,
   IconApps,
   IconCheckCircle,
   IconExclamationCircle,
-  IconUser,
+  IconDashboard,
+  IconTag,
   IconMenuFold,
   IconMenuUnfold,
+  IconVideoCamera,
+  IconUser,
+  IconUserGroup,
+  IconFile,
+  IconCommon,
+  IconStorage,
+  IconBook,
+  IconList,
+  IconSettings,
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import qs from 'query-string';
@@ -51,6 +57,14 @@ function getIconFromKey(key) {
       return <IconExclamationCircle className={styles.icon} />;
     case 'user':
       return <IconUser className={styles.icon} />;
+
+    case 'course':
+      return <IconVideoCamera className={styles.icon} />;
+    case 'content':
+      return <IconFile className={styles.icon} />;
+
+    case 'role':
+      return <IconUserGroup className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }
