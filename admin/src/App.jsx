@@ -9,6 +9,7 @@ const IconFont = Icon.addFromIconFontCn({
 <IconFont type="icon-person" style={{ fontSize: 40, marginRight: 40 }} />;
 import { useMemo } from 'react';
 import { getFlattenRoutes, routes } from './routes';
+
 function App() {
   const flattenRoutes = useMemo(() => getFlattenRoutes(routes) || [], [routes]);
   return (
