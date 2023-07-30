@@ -29,6 +29,9 @@ dependencies:
   '@turf/turf':
     specifier: ^6.5.0
     version: 6.5.0
+  ahooks:
+    specifier: ^3.7.8
+    version: 3.7.8(react@17.0.2)
   arco-design-pro:
     specifier: ^2.8.0
     version: 2.8.0
@@ -4054,6 +4057,13 @@ packages:
       hoist-non-react-statics: 3.3.2
     dev: false
 
+  /@types/js-cookie@2.2.7:
+    resolution:
+      {
+        integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==,
+      }
+    dev: false
+
   /@types/json-schema@7.0.12:
     resolution:
       {
@@ -4534,6 +4544,35 @@ packages:
     engines: { node: '>=0.4.0' }
     hasBin: true
     dev: true
+
+  /ahooks-v3-count@1.0.0:
+    resolution:
+      {
+        integrity: sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==,
+      }
+    dev: false
+
+  /ahooks@3.7.8(react@17.0.2):
+    resolution:
+      {
+        integrity: sha512-e/NMlQWoCjaUtncNFIZk3FG1ImSkV/JhScQSkTqnftakRwdfZWSw6zzoWSG9OMYqPNs2MguDYBUFFC6THelWXA==,
+      }
+    engines: { node: '>=8.0.0' }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.22.6
+      '@types/js-cookie': 2.2.7
+      ahooks-v3-count: 1.0.0
+      dayjs: 1.11.9
+      intersection-observer: 0.12.2
+      js-cookie: 2.2.1
+      lodash: 4.17.21
+      react: 17.0.2
+      resize-observer-polyfill: 1.5.1
+      screenfull: 5.2.0
+      tslib: 2.6.1
+    dev: false
 
   /ajv-keywords@3.5.2(ajv@6.12.6):
     resolution:
@@ -7202,6 +7241,13 @@ packages:
       }
     dev: false
 
+  /intersection-observer@0.12.2:
+    resolution:
+      {
+        integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==,
+      }
+    dev: false
+
   /is-arguments@1.1.1:
     resolution:
       {
@@ -7457,6 +7503,13 @@ packages:
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
+
+  /js-cookie@2.2.1:
+    resolution:
+      {
+        integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==,
+      }
+    dev: false
 
   /js-tokens@4.0.0:
     resolution:
@@ -9227,6 +9280,14 @@ packages:
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
     dev: true
+
+  /screenfull@5.2.0:
+    resolution:
+      {
+        integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==,
+      }
+    engines: { node: '>=0.10.0' }
+    dev: false
 
   /scroll-into-view-if-needed@2.2.20:
     resolution:

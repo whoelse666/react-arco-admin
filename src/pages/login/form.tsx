@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Form,
   Input,
@@ -5,11 +6,10 @@ import {
   Link,
   Button,
   Space,
+  Message,
 } from '@arco-design/web-react';
 import { FormInstance } from '@arco-design/web-react/es/Form';
 import { IconLock, IconUser } from '@arco-design/web-react/icon';
-import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import useStorage from '@/utils/useStorage';
 import useLocale from '@/utils/useLocale';
 import locale from './locale';
@@ -77,7 +77,12 @@ export default function LoginForm() {
         ref={formRef}
         initialValues={{ phoneNumber: '13888888888', password: '888888' }}
       >
-        <Form.Item field="phoneNumber">
+        <Form.Item
+          field="phoneNumber"
+          rules={[
+            { required: true, message: t['login.form.phoneNumber.errMsg'] },
+          ]}
+        >
           <Input prefix={<IconUser />} onPressEnter={onSubmitClick} />
         </Form.Item>
         <Form.Item

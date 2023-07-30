@@ -5,11 +5,8 @@ import styles from '../style/layout.module.less';
 
 // https://github.com/gregberge/loadable-components/pull/226
 function load(fn, options) {
-  console.log('load :>> ', fn);
   const Component = loadable(fn, options);
-
   Component.preload = fn.requireAsync || fn;
-
   return Component;
 }
 
