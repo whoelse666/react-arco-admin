@@ -8,7 +8,7 @@ type FormProps = {
   visible: boolean;
   setVisible: (b: boolean) => void;
   editedItem: User;
-  callback: (editedItem?: Partial<User>) => void;
+  callback: (editedItem?: Partial<User>, isResetCurrent?: boolean) => void;
   width?: number | string;
 };
 const name = '用户信息';
@@ -34,7 +34,7 @@ function DrawerForm({
       const res: any = await addUser(item);
       if (res._id) {
         Message.success(title + '用户成功');
-        callback && callback(item);
+        callback && callback(item, true);
         setVisible(false);
       } else {
         Message.success(title + '用户失败');

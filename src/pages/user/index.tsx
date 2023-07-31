@@ -8,13 +8,7 @@ import {
   Popconfirm,
 } from '@arco-design/web-react';
 
-import {
-  findAllUser,
-  findUser,
-  deleteUser,
-  updateUser,
-  addUser,
-} from '@/requests/user';
+import { findAllUser, deleteUser } from '@/requests/user';
 const { Title } = Typography;
 import { Table, TableColumnProps } from '@arco-design/web-react';
 import { usePagination } from 'ahooks';
@@ -42,11 +36,15 @@ export const initial = {
 export type User = typeof initial;
 
 export default function User() {
+  // 控制页码重置到第一页
+  const [gender, setGender] = useState<number>(0);
+
   const [editedItem, setEditedItem] = useState(initial);
   const [visible, setVisible] = useState(false);
   const { data, pagination, loading, refresh } = usePagination(getTableData, {
     defaultCurrent: 1,
     defaultPageSize: 2,
+    refreshDeps: [gender], //refreshDeps 是一个语法糖，当它变化时，会重置分页到第一页，并重新请求数据，一般你可以把依赖的条件放这里。
   });
 
   const delTableItem = async (id) => {
@@ -144,7 +142,12 @@ export default function User() {
           setVisible,
           editedItem,
           width: 500,
-          callback: () => refresh(),
+          callback: (item, isResetCurrent) => {
+            if (isResetCurrent) {
+              setGender(1);
+            }
+            refresh();
+          },
         }}
       ></DrawerForm>
     </Card>
