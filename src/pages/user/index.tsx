@@ -8,7 +8,7 @@ import {
   Popconfirm,
 } from '@arco-design/web-react';
 
-import { findAllUser, deleteUser } from '@/requests/user';
+import { findAllUser, deleteUser } from '@/api/user';
 const { Title } = Typography;
 import { Table, TableColumnProps } from '@arco-design/web-react';
 import { usePagination } from 'ahooks';
@@ -80,8 +80,9 @@ export default function User() {
     {
       title: '用户头像',
       dataIndex: 'avatar',
-      render(value: string) {
-        return <img src={value} width="60" />;
+      render(value: { url: string; static: string }) {
+        console.log('value :>> ', value);
+        return <img src={value?.url || value?.static} width="60" />;
       },
     },
     {
