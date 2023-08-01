@@ -119,12 +119,16 @@ function DrawerForm({
                 });
                 // 上传成功，获取文件名
                 if (currentFile.status === 'done') {
-                  const { data } = currentFile.response as OpResult<string>;
+                  const { data } = currentFile.response as any;
+                  // 存入表单项
+                  form.setFieldValue('avatar', data);
+                  /* const { data } = currentFile.response as OpResult<string>;
                   form.setFieldValue('avatar', {
                     static: data,
                     url: URL.createObjectURL(currentFile.originFile),
-                  });
+                  }); */
                 }
+                 
               }}
               onProgress={(currentFile) => {
                 setFile(currentFile);

@@ -32,14 +32,17 @@ export const routes: IRoute[] = [
   {
     name: 'menu.user',
     key: 'user',
+    // requiredPermissions: [{ resource: 'user', actions: ['read', 'write'] }],
   },
   {
     name: 'menu.role',
     key: 'role',
+    // requiredPermissions: [{ resource: 'role', actions: ['read', 'write'] }],
   },
   {
     name: 'menu.course',
     key: 'course',
+    // requiredPermissions: [{ resource: 'course', actions: ['read', 'write'] }],
   },
   // {
   //   name: 'menu.dashboard',

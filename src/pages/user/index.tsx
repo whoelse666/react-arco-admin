@@ -13,7 +13,7 @@ const { Title } = Typography;
 import { Table, TableColumnProps } from '@arco-design/web-react';
 import { usePagination } from 'ahooks';
 import DrawerForm from './components/drawerForm';
-
+// import DrawerForm from './form';
 const getTableData = async () => {
   // const users: any = await http.get<{ name: string }>('/api/user');
   const users: any = await findAllUser();
@@ -80,10 +80,13 @@ export default function User() {
     {
       title: '用户头像',
       dataIndex: 'avatar',
-      render(value: { url: string; static: string }) {
-        console.log('value :>> ', value);
-        return <img src={value?.url || value?.static} width="60" />;
+      render(value: string) {
+        return <img src={value} width="50" />;
       },
+      // render(value: { url: string; static: string }) {
+      //   console.log('value :>> ', value);
+      //   return <img src={value?.url || value?.static} width="60" />;
+      // },
     },
     {
       title: '邮箱',
@@ -137,6 +140,9 @@ export default function User() {
           style={{ width: '100%' }}
         />
       </Space>
+
+      {/* 表单 */}
+      {/* <DrawerForm {...{ visible, setVisible, editedItem, callback: () => refresh() }}></DrawerForm> */}
       <DrawerForm
         {...{
           visible,
