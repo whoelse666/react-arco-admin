@@ -4,6 +4,7 @@ const i18n = {
     'menu.user': 'User',
     'menu.role': 'Role',
     'menu.course': 'Course',
+    'menu.content': 'Content',
 
     'menu.list': 'List',
     'menu.result': 'Result',
@@ -68,7 +69,7 @@ const i18n = {
     'menu.user': '用户列表',
     'menu.role': '角色列表',
     'menu.course': '课程列表',
-
+    'menu.content': '内容管理',
     'menu.result': '结果页',
     'menu.exception': '异常页',
     'menu.form': '表单页',

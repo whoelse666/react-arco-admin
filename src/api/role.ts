@@ -1,9 +1,7 @@
 import { OpResult, Result } from '@/types';
 import { PaginationProps } from '@arco-design/web-react';
 import http from '@/utils/http';
-
 const url = '/api/role';
-
 export interface Role {
   _id: string;
   name: string;

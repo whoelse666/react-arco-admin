@@ -18,10 +18,8 @@ import {
 import { usePagination } from 'ahooks';
 import DrawerForm from './components/drawerForm'
 import {
-  addRole,
   deleteRole,
   getRoleList,
-  updateRole,
   Role,
   initial,
 } from '@/api/role';
@@ -32,11 +30,7 @@ import PermissionWrapper from '@/components/PermissionWrapper';
 const Text = Typography.Text;
 const Title = Typography.Title;
 const FormItem = Form.Item;
-
-
-
-
-
+ 
 // 用户页面组件
 function RolePage() {
   // 获取列表数据
@@ -61,14 +55,32 @@ function RolePage() {
   const [visible, setVisible] = useState(false)
   const [editedItem, setEditedItem] = useState(initial);
 
-  const tableCallback = (record, type) => {
-    console.log('record, type :>> ', record, type);
+  const tableCallback = async (record, type) => {
+ 
+    if (type == 'edit') {
+      setVisible(true);
+      setEditedItem(record);
+    } else if (type === 'delete') {
+      try {
+        await deleteRole(record._id);
+        Message.success('删除用户成功!');
 
-    if (type == 'edit') { } else {
+        const { current, total, changeCurrent } = pagination;
+        if (total > 0 && data.list.length === 1 && current > 1) {
+          changeCurrent(current - 1);
+        } else {
+          refresh();
+        }
+      } catch (error) {
+        Message.success('删除用户失败，请重试!');
 
+      }
     }
   }
+
+
   const onAdd = () => {
+    setEditedItem(initial)
     setVisible(true)
   }
   const columns = [
@@ -112,7 +124,6 @@ function RolePage() {
   ];
 
 
-
   return (
     <>
       <Card>
@@ -133,13 +144,12 @@ function RolePage() {
           data={data?.list}
         />
       </Card>
-
-
       <DrawerForm
         {...{
           visible,
           setVisible,
           editedItem,
+          setEditedItem,
           width: 500,
           callback: (item, isResetCurrent) => {
             // if (isResetCurrent) {
