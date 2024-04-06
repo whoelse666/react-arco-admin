@@ -1,6 +1,7 @@
 const i18n = {
   'en-US': {
     'login.form.title': 'Login to Arco Design Pro',
+    'login.form.phoneNumber.errMsg': 'phoneNumber cannot be empty',
     'login.form.userName.errMsg': 'Username cannot be empty',
     'login.form.password.errMsg': 'Password cannot be empty',
     'login.form.login.errMsg': 'Login error, please refresh and try again',
@@ -21,6 +22,8 @@ const i18n = {
   },
   'zh-CN': {
     'login.form.title': '登录 Arco Design Pro',
+    'login.form.phoneNumber.errMsg': '手机号不能为空',
+
     'login.form.userName.errMsg': '用户名不能为空',
     'login.form.password.errMsg': '密码不能为空',
     'login.form.login.errMsg': '登录出错，请刷新重试',

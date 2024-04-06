@@ -7,6 +7,8 @@ type PermissionWrapperProps = AuthParams & {
   backup?: React.ReactNode;
 };
 
+
+// 权限控制 
 const PermissionWrapper = (
   props: React.PropsWithChildren<PermissionWrapperProps>
 ) => {
